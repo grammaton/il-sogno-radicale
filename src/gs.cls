@@ -68,11 +68,14 @@
 
 %% === LAYOUT E GEOMETRIA ===
 \RequirePackage[
-    margin=2.5cm,
-    top=3cm,
-    bottom=3cm,
+    margin=3.5cm,
+    top=1cm,
+    bottom=1cm,
     includeheadfoot
 ]{geometry}
+
+% Interlinea
+\linespread{1.2}
 
 %% === PACCHETTI ESSENZIALI ===
 \RequirePackage{amsmath}
@@ -80,6 +83,9 @@
 \RequirePackage{amssymb}
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
+
+% Bibliografia con biblatex (opzionale, commentare se si preferisce bibtex)
+\RequirePackage[backend=biber,style=numeric]{biblatex}
 
 %% === CONFIGURAZIONE HYPERREF ===
 % Definizione di comandi per metadati personalizzati
@@ -117,20 +123,22 @@
 \renewcommand{\maketitle}{%
     \thispagestyle{plain}% Forza lo stile plain per la prima pagina
     \begin{center}
+        % Autore
+        {\large \@author \par}
+        {\rule{7cm}{1pt} \par}
         % Titolo principale
-        {\LARGE\bfseries\sffamily \@title \par}
+        {\Huge\bfseries\emph \@title \par}
 
         % Sottotitolo (se definito)
         \ifx\@subtitle\@empty
         \else
-            \vspace{0.3cm}
+            \vspace{0.1cm}
             {\large\itshape \@subtitle \par}
         \fi
 
-        \vspace{0.5cm}
+        \vspace{1cm}
 
-        % Autore
-        {\normalsize \@author \par}
+
 
         % Data
         {\normalsize \@date \par}

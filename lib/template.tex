@@ -1,0 +1,35 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%
+\documentclass[border=0.1cm]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{Alegreya}
+\usepackage{apf}  % Il nostro nuovo stile
+
+\begin{document}
+
+% Primo diagramma - quello originale
+\begin{tikzpicture}
+  \tikzstyle{every node}=[font=\small]
+  \ciclodiagram{creatività}{invenzione}{ricerca}
+\end{tikzpicture}
+
+\vspace{1cm}
+
+% Secondo diagramma - esempio diverso
+\begin{tikzpicture}
+  \tikzstyle{every node}=[font=\small]
+  \ciclodiagram{teoria}{pratica}{riflessione}
+\end{tikzpicture}
+
+\vspace{1cm}
+
+% Terzo diagramma - con parametri personalizzati
+\begin{tikzpicture}
+  \tikzstyle{every node}=[font=\small]
+  \setcicloparams{radius=1.5cm, rotation=0}
+  \ciclodiagram{tesi}{antitesi}{sintesi}
+\end{tikzpicture}
+
+\end{document}

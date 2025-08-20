@@ -1,0 +1,85 @@
+% ciclo.sty - Stile per diagrammi ciclici con testo lungo curve
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ciclo}[2025/06/21 Stile per diagrammi ciclici]
+
+\RequirePackage{tikz}
+\usetikzlibrary{decorations.text}
+
+% Parametri configurabili
+\newcommand{\cicloRadius}{2cm}
+\newcommand{\cicloRotation}{3}
+\newcommand{\cicloTextRaise}{-1.7pt}
+\newcommand{\cicloLineStart}{-0.5}
+\newcommand{\cicloLineEnd}{6.5}
+\newcommand{\cicloArcStart}{1}
+\newcommand{\cicloArcEnd}{5}
+
+% Stile base per decorazione testo
+\tikzset{
+  ciclo text decoration/.style={
+    postaction={
+      decorate,
+      decoration={
+        raise=\cicloTextRaise,
+        text effects along path,
+        text align=center,
+        text={~#1~},
+        text effects/.cd,
+          character count=\i,
+          character total=\n,
+          characters={text along path, fill=white}
+      }
+    }
+  }
+}
+
+% Stili specifici per ogni elemento
+\tikzset{
+  ciclo base/.style={thick, ciclo text decoration={#1}},
+  ciclo upper/.style={thick, ->, ciclo text decoration={#1}},
+  ciclo lower/.style={
+    thick, ->,
+    postaction={
+      decorate,
+      decoration={
+        raise=\cicloTextRaise,
+        text effects along path,
+        reverse path,
+        text align=center,
+        text={~#1~},
+        text effects/.cd,
+          character count=\i,
+          character total=\n,
+          characters={text along path, fill=white}
+      }
+    }
+  }
+}
+
+% Comando principale per creare il diagramma
+\newcommand{\ciclodiagram}[3]{%
+  \begin{scope}[rotate=\cicloRotation]
+    \draw[ciclo base={#1}] (\cicloLineStart,0) -- (\cicloLineEnd,0);
+    \draw[ciclo upper={#2}] (\cicloArcStart,0) arc (180:2:\cicloRadius);
+    \draw[ciclo lower={#3}] (\cicloArcEnd,0) arc (0:-178:\cicloRadius);
+  \end{scope}
+}
+
+% Comando per configurare i parametri
+\newcommand{\setcicloparams}[1]{%
+  \pgfkeys{/ciclo/.cd,#1}
+}
+
+% Definizione delle chiavi per i parametri
+\pgfkeys{
+  /ciclo/.cd,
+  radius/.code={\renewcommand{\cicloRadius}{#1}},
+  rotation/.code={\renewcommand{\cicloRotation}{#1}},
+  text raise/.code={\renewcommand{\cicloTextRaise}{#1}},
+  line start/.code={\renewcommand{\cicloLineStart}{#1}},
+  line end/.code={\renewcommand{\cicloLineEnd}{#1}},
+  arc start/.code={\renewcommand{\cicloArcStart}{#1}},
+  arc end/.code={\renewcommand{\cicloArcEnd}{#1}}
+}
+
+\endinput

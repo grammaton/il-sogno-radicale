@@ -85,7 +85,7 @@
 \RequirePackage{hyperref}
 
 % Bibliografia con biblatex (opzionale, commentare se si preferisce bibtex)
-%\RequirePackage[backend=bibtex,style=numeric]{biblatex}
+\RequirePackage[backend=biber,style=numeric]{biblatex}
 
 %% === PERSONALIZZAZIONE CAPTION ===
 \RequirePackage{caption}

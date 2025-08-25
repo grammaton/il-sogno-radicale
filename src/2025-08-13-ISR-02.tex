@@ -3,10 +3,10 @@
 
 \documentclass{gs}
 
-%% Configurazione per URL su nuova linea
-%\DeclareFieldFormat{url}{\newline\url{#1}}
-%\DeclareFieldFormat{howpublished}{\newline\footnotesize#1}
-%\DeclareFieldFormat{urldate}{\mkbibparens{#1}}
+% Configurazione per URL su nuova linea
+\DeclareFieldFormat{url}{\newline\url{#1}}
+\DeclareFieldFormat{howpublished}{\newline\footnotesize#1}
+\DeclareFieldFormat{urldate}{\mkbibparens{#1}}
 
 \usepackage{../lib/apf}
 
@@ -22,7 +22,7 @@
 \kquattro{etimologia}
 \kcinque{XeLaTeX}
 
-\usepackage[backend=bibtex,style=numeric]{biblatex}
+% Nel preambolo del .tex
 \addbibresource{bibliografia.bib}
 
 \begin{document}

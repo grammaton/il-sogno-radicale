@@ -1,0 +1,193 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{../../lib/gs}
+
+% Configurazione per URL su nuova linea
+\DeclareFieldFormat{url}{\newline\footnotesize\url{#1}}
+\DeclareFieldFormat{howpublished}{\newline\footnotesize#1}
+\DeclareFieldFormat{urldate}{\mkbibparens{#1}}
+
+\usepackage{../../lib/apf}
+
+% Packages per figure e grafici
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{decorations.text}
+\usepackage{subcaption}
+
+\usepackage{enumitem}
+
+\title{il sogno radicale}
+\subtitle{autobiografia di un eretico. appunti revb.}
+\author{Giuseppe Silvi}
+\date{\today}
+
+% Definizione delle parole chiave per i metadati PDF
+\kuno{filosofia}
+\kdue{greco antico}
+\ktre{Platone}
+\kquattro{etimologia}
+\kcinque{XeLaTeX}
+
+% Comandi per la notazione AllPass
+\newcommand{\apf}[3]{\textbf{\texttt{#1(#2,#3)}}}
+\newcommand{\apfc}[3]{\begin{center}\apf{#1}{#2}{#3}\end{center}}
+\newcommand{\apfcn}[4]{\begin{center}\apf{#1}{#2}{#3}\footnote{#4}\end{center}}
+
+% Nel preambolo del .tex
+\addbibresource{../bibliografia.bib}
+
+\begin{document}
+
+\maketitle
+
+\addcontentsline{toc}{section}{premessa: \emph{perché siamo qui?}}
+\section*{premessa: \emph{perché siamo qui?}}
+
+Sto operando quella che Ronchi, nella prefazione de \emph{Il pensiero bastardo}
+\cite{ronchi2001} ha definito una «torsione», una «preliminare torsione
+filosofica» dell'oggetto.
+
+\begin{quote}
+\begin{sf}
+\small
+  Le altre pratiche (pittura, fotografia, cinema, ecc.) sono chiamate in causa
+  solo al prezzo di una preliminare torsione filosofica del loro oggetto.
+  \cite{ronchi2001}
+  \end{sf}
+\end{quote}
+
+\textit{Torsiō} deriva dal verbo \textit{torquēre}, riconducibile alla radice
+indoeuropea *terkʷ- “torcere, girare”\footnote{Pokorny IEW 1077-1078; de Vaan
+EDLIL 621-622.}, che designa il movimento rotatorio applicato mediante forza.
+La torsione implica una resistenza\footnote{Il materiale oppone una resistenza
+caratterizzata dal modulo di elasticità tangenziale e dal momento d'inerzia
+polare della sezione. Dal latino \emph{re-sistere}: uno \emph{stare contro} che
+è inevitabilmente anche \emph{stare di nuovo} - un ristabilirsi, un tornare a
+stare.} che rende possibile una tensione\footnote{La torsione genera tensioni di
+taglio (\emph{shear stress}) nel materiale. Queste tensioni sono distribuite
+trasversalmente alla sezione e aumentano linearmente dalla fibra neutra verso
+la periferia. Dal latino \emph{tensio}, da \emph{tendere}, pro-tendere qualcosa
+verso; un orientamento attivo.}. Un \emph{ob-ponere} istantaneo che dura in un
+\emph{ob-sidere}, quindi in una forma, in un movimento. Un doppio moto – di
+deformazione sotto l'azione del momento torcente applicato; di ritorno ad un
+altro momento sotto l'azione di resistenza elastica\footnote{Il termine momento
+indica sia l'istante temporale che la grandezza fisica (momento torcente),
+suggerendo come ogni deformazione sia sempre un dialogo tra forza e tempo, tra
+imposizione e memoria del materiale. Ritorno ad un altro momento perché, dopo
+una torsione, si è altrove.}.
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{tikzpicture}
+  \tikzstyle{every node}=[font=\small]
+  \ciclodiagram{torsione}{resistenza}{tensione}
+\end{tikzpicture}
+\caption{Il grafico simboleggia la torsione come nodo concettuale stretto tra un
+moto di tensione distorcente e un moto di ritorno sotto la forza di resistenza.}
+\label{torsione}
+\end{center}
+\end{figure}
+
+Mi è evidente che c'è un passo della torsione, quello successivo, che conduce
+alla \emph{dis}-torsione. Tuttavia, seppur con questo breve pensiero cerco di
+tenermene a distanza, un passo prima, mi è altresì evidente che, in torsione,
+non si può avere paura delle distorsioni poiché questa impedirebbe possibili
+\emph{con}-torsioni. È se anche il Prof. Ronchi intendesse indicare una qualsiasi
+semplice deviazione rispetto a una condizione di normalità o linearità (la
+torsione di un ragionamento, di una interpretazione, di una situazione), cosa
+che io dubito, ormai mi son mosso.
+
+Sento un'assenza. Mi accorgo, quotidianamente, da un certo tempo, a seguito di
+alcune singole riflessioni \cite{silvi2023a, silvi2023b, silvi2023c, silvi2024},
+seppur non isolate, di desiderare, di avere necessità di \emph{abitare} una
+teoria della musica. Non è un bisogno, momentaneo e transitorio, bensì
+l'inevitabile presenza di un'assenza, costante. Molte delle singole riflessioni,
+delle risonanze singolari, vorrebbero appartenere a un riverbero, a riverberi
+generali di un luogo più ampio che chiamerei \emph{teoria della musica}.
+
+\begin{quote}
+\begin{sf}
+\small
+  La teoria è infatti chiamata in causa, dopotutto, solo per far luce su di
+  un'esperienza di cui non si riesce a venire a capo. \cite{ronchi2001}
+  \end{sf}
+\end{quote}
+
+Abitare una teoria. Tuttavia, \emph{che cos'è una teoria? Che cos'è una teoria
+musicale? E santo cielo! Che cos'è Musica? E poi che cos'è un'esperienza? Che
+cos'è un'esperienza musicale?}
+
+Heidegger, che mi pare amasse le torsioni, in un ragionamento sull'abitare
+\cite{heidegger1991} si muove da un primo passo «All'abitare, così sembra,
+perveniamo solo attraverso il costruire». Questo mi fa pensare che noi oggi, in
+musica, siamo in piena «crisi di alloggi». Osservo l'ambiente che mi circonda e
+vedo pochissime costruzioni che «albergano l'uomo», il musicista. edifici vecchi,
+consumati o restaurati per le nuove forme di turismo (musicale). Per imparare
+ad avere rispetto della mia ineluttabile necessità scorro la storia delle teorie
+della musica, un indice che si muove più volte avanti e dietro, non in cerca di
+regole, definizioni di una o più problematiche specifiche, ma in cerca di
+divergenze, di attitudini, di problematiche generali affinché io possa, con
+semplicità, trovare radici per le mie problematiche specifiche, per le utopie
+che muovono le mani. «Il costruire non è soltanto mezzo e via per l'abitare, il
+costruire è già in se stesso un abitare.» \cite{heidegger1991}
+
+\begin{quote}
+\begin{sf}
+\small
+  L'incontro fra due discipline non avviene quando l'una si mette a riflettere sull'altra, ma quando una si accorge di dover risolvere per conto proprio e
+  con i propri mezzi un problema simile a quello che si pone anche in un'altra.
+  [\ldots] Sono le medesime scosse in terreni completamente diversi.
+  [\ldots] Non c'è opera che non abbia il suo seguito o il suo inizio in altre
+  arti.
+  \cite{deleuze2009}
+  \end{sf}
+\end{quote}
+
+% \vspace{1cm}
+%
+% NOTA: mettere in relazione il costruire con «il loro oggetto” di Ronchi.
+
+\clearpage
+
+\include{en-archei/2025-08-31-en-archei.tex}
+
+\clearpage
+
+\include{come-un-allpass/2025-08-31-come-un-allpass.tex}
+
+\clearpage
+
+\include{sonario/2025-08-31-sonario.tex}
+
+\clearpage
+
+\include{del-loro-oggetto/2025-08-31-del-loro-oggetto.tex}
+
+\clearpage
+
+\thispagestyle{empty}
+\null\vfill
+{\Huge\emph{appendici}}
+\vfill\null
+
+\clearpage
+
+\appendix
+\thispagestyle{empty}
+
+\include{appendici/schoenberg.tex}
+
+\clearpage
+\thispagestyle{plain}
+\tableofcontents
+
+\clearpage
+
+% Nel documento
+\nocite{*}
+\printbibliography
+
+\end{document}

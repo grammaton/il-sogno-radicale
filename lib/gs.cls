@@ -85,7 +85,7 @@
 \RequirePackage{hyperref}
 
 % Bibliografia con biblatex (opzionale, commentare se si preferisce bibtex)
-%\RequirePackage[backend=bibtex,style=numeric]{biblatex}
+\RequirePackage[backend=biber,style=numeric]{biblatex}
 
 %% === PERSONALIZZAZIONE CAPTION ===
 \RequirePackage{caption}
@@ -223,21 +223,21 @@
     {0.5em}
     {}
 
-%% === HEADER E FOOTER ===
-\RequirePackage{fancyhdr}
-\pagestyle{fancy}
+% %% === HEADER E FOOTER ===
+% \RequirePackage{fancyhdr}
+% \pagestyle{fancy}
+%
+% \fancyhf{} % Pulisce header e footer
+% \fancyhead[L]{\leftmark}
+% \fancyhead[R]{\thepage}
+% \renewcommand{\headrulewidth}{0.1pt}
+% \renewcommand{\footrulewidth}{0pt}
 
-\fancyhf{} % Pulisce header e footer
-\fancyhead[L]{\leftmark}
-\fancyhead[R]{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Stile per la prima pagina
-\fancypagestyle{plain}{%
-    \fancyhf{}
-    \fancyfoot[C]{\thepage}
-    \renewcommand{\headrulewidth}{0pt}
-}
+% % Stile per la prima pagina
+% \fancypagestyle{plain}{%
+%     \fancyhf{}
+%     \fancyfoot[C]{\thepage}
+%     \renewcommand{\headrulewidth}{0pt}
+% }
 
 %% === FINE CLASSE ===

@@ -1,0 +1,292 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%!TEX root = amu_proposal-graphics-final-italiano.tex
+%
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{Alegreya}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+% Packages per figure e grafici
+\usepackage{apf}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{decorations.text}
+\usepackage{subcaption}
+
+% Impostazioni pagina
+\geometry{
+    top=1cm,
+    bottom=2.5cm,
+    left=3.5cm,
+    right=3.5cm
+}
+
+% Spaziatura e formattazione
+\onehalfspacing
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% Comandi per la notazione AllPass
+\newcommand{\apf}[3]{\textbf{\texttt{#1(#2,#3)}}}
+\newcommand{\apfc}[3]{\begin{center}\apf{#1}{#2}{#3}\end{center}}
+\newcommand{\apfcn}[4]{\begin{center}\apf{#1}{#2}{#3}\footnote{#4}\end{center}}
+
+\begin{document}
+
+% Header convegno
+\begin{center}
+{\small \textbf{ART AND SCIENCE: THINKING OUTSIDE THE BOX} \\
+Academy of Performing Arts in Prague (AMU) \\
+18–20 novembre 2025}
+\end{center}
+
+% Titolo con traduzione
+\begin{center}
+{\Large \textbf{come un filtro \emph{AllPass}*\\
+{\textit{L'Elaborazione Digitale del Segnale come Ponte Epistemologico nell'Esperienza Musicale}}}}
+\end{center}
+
+% Reset del contatore footnote e uso simboli
+\setcounter{footnote}{0}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\footnotetext[1]{like an \emph{AllPass} filter}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+% Autore
+\begin{center}
+\textbf{Giuseppe Silvi} \\
+LEAP - Laboratorio ElettroAcustico Permanente, Roma
+\end{center}
+
+\section*{Abstract}
+
+Questa ricerca si fonda sul principio che il linguaggio costituisce un segnale — non un segnale naturale come le posizioni stellari o i cicli giorno-notte, ma un segnale artificiale basato su principi e modulazioni della materia. A partire da questo fondamento, lo studio propone il filtro \emph{AllPass} come ponte epistemologico tra postura scientifica ed esplorazione artistica, dimostrando come l'elaborazione del segnale possa illuminare la natura temporale dell'esperienza musicale senza ridurla ad analisi parametrica. Il quadro teorico presenta una proprietà ricorsiva: la teoria \emph{AllPass} stessa opera come un filtro \emph{AllPass}
+
+\apfc{APT}{scientifico}{artistico}
+
+mentre la sua metodologia emerge come
+
+\apfc{metodologia}{postura}{esplorazione}
+
+— rivelando una teoria capace di descrivere la propria natura interdisciplinare attraverso la notazione che la fonda.
+
+Un filtro \emph{AllPass} preserva l'energia del segnale trasformando le relazioni temporali — una proprietà matematica che rispecchia come l'esperienza musicale conservi il contenuto informazionale trasformando continuamente il significato attraverso l'intreccio di materia e memoria. Questo isomorfismo consente una forma di indagine che incarna l'interdisciplinarità attraverso la propria struttura auto-referenziale. L'approccio estende tradizioni provenienti dalla cibernetica e teoria del segnale nell'analisi fenomenologica mantenendo tanto il rigore scientifico quanto la ricchezza esperienziale.
+
+La metodologia opera attraverso quattro livelli correlati che emergono dal processo:
+\begin{enumerate}[nosep]
+  \item analisi filosofica della costituzione temporale e della potenzialità creativa;
+  \item rappresentazione circuitale attraverso diagrammi che visualizzano il flusso temporale dei processi (Figura \ref{apf});
+  \item notazione formale mediante il sistema simbolico
+    \apfc{processo}{fir}{iir}
+    che sintetizza relazioni temporali complesse;
+  \item implementazione numerica attraverso funzioni di trasferimento (Equazione \ref{transfer}) ed equazioni alle differenze discrete (Equazione \ref{difference}) che consentono simulazioni analitiche di processi filosofici.
+\end{enumerate}
+
+Questo approccio affronta questioni fondamentali sulle metodologie della ricerca artistica: \textit{È possibile che modelli formali preservino la complessità esperienziale senza riduzione parametrica? Come trasformano gli strumenti scientifici la nostra comprensione dei processi creativi?} Il paradigma \emph{AllPass} dimostra che l'opposizione percepita tra analisi scientifica e intuizione artistica si dissolve quando entrambe operano all'interno di domini temporali condivisi.
+
+Applicazioni pratiche emergono nella ricerca elettroacustica, dove il modello analizza processi critici quali
+
+\apfcn{ascolto}{percezione}{conoscenza}{ascolto(percezione,conoscenza)}
+
+e
+
+\apfcn{artista}{operazione}{opera}{artista(operazione,opera)}
+
+Questi processi possono essere ulteriormente decomposti, come nel caso dell'opera stessa:
+
+\apfcn{opera}{strumento}{interprete}{opera(strumento,musicista)}
+
+Le simulazioni numeriche rivelano come relazioni filosofiche tradizionalmente dialettiche divengano complementari in dinamiche processuali, estendendo l'analisi computazionale nel dominio temporale dell'esperienza musicale.
+
+La ricerca emerge dal lavoro basato sulla pratica presso LEAP (Laboratorio ElettroAcustico Permanente), dove i modelli teorici informano direttamente la composizione e performance elettroacustica. Questo crea un ciclo di retroazione tra analisi scientifica e creazione artistica che esemplifica la visione del convegno di dialogo produttivo attraverso confini epistemologici.
+
+Dimostrando come il formalismo circuitale possa potenziare la comprensione artistica, questo lavoro contribuisce a una teoria dell'esperienza musicale computazionalmente e filosoficamente informata che estende il rigore analitico nel dominio temporale proprio del pensiero musicale.
+
+\clearpage
+
+\section*{Quadro Visuale}
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{tikzpicture}
+  \tikzstyle{every node}=[font=\small]
+  \ciclodiagram{processo}{fir}{iir}
+\end{tikzpicture}
+\caption{Schema del modello \emph{AllPass}: il processo centrale consiste nell'elaborazione temporale, mentre elementi anticipatori (FIR) precedono l'elaborazione ed elementi ricorsivi (IIR) la seguono, creando una tendenza a feedback infinito. Questo isomorfismo strutturale consente di modellare processi filosofico-musicali complessi nell'equilibrio energetico tra mediazione e immediatezza.}
+\label{apf}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \tikzstyle{every node}=[font=\small]
+      \ciclodiagram{esperienza}{materia}{memoria}
+    \end{tikzpicture}
+    \caption{Esperienza bergsoniana: la materia come input diretto (FIR) si combina con la memoria ricorsiva (IIR) nel processo dell'esperienza cosciente.}
+    \label{esperienza}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \tikzstyle{every node}=[font=\small]
+      \ciclodiagram{creatività}{potenzialità}{potenzialità-di-non}
+    \end{tikzpicture}
+    \caption{Creatività in Agamben: la potenzialità attiva (FIR) interagisce con la potenzialità-di-non (IIR) generando il processo creativo attraverso feedback dialettico.}
+    \label{creativita}
+  \end{subfigure}
+  \caption{Applicazioni del modello \emph{AllPass} a concetti filosofici fondamentali. (a) La materia come presentazione immediata (FIR) e la memoria come ritenzione e riattualizzazione (IIR). (b) La creatività come dialettica tra potenzialità attiva e potenzialità-di-non.}
+  \label{fig:filosofia}
+\end{figure}
+
+\clearpage
+
+\subsection*{Implementazione Matematica: Filtro \emph{AllPass} di Schroeder (1962)}
+
+La funzione di trasferimento H(z) descrive il comportamento del filtro nel dominio delle frequenze,
+
+\begin{equation}
+  H(z) = \frac{-g + z^{-1}}{1 - g \cdot z^{-1}}
+  \label{transfer}
+\end{equation}
+
+mentre l'equazione alle differenze discrete
+
+\begin{equation}
+  y[n] = -g \cdot x[n] + x[n-1] + g \cdot y[n-1]
+  \label{difference}
+\end{equation}
+
+esprime lo stesso sistema nel dominio del tempo, mostrando come ogni campione di uscita y[n] emerga dall'intreccio di input corrente x[n], input ritardato x[n-1], e uscita precedente y[n-1].
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[
+        width=4.5cm,
+        height=3.5cm,
+        xlabel={$n$},
+        ylabel={$h[n]$},
+        xmin=0, xmax=15,
+        ymin=-1.2, ymax=1.2,
+        grid=major,
+        grid style={line width=.1pt, draw=gray!30},
+        tick label style={font=\tiny},
+        label style={font=\footnotesize},
+        title={$g = 0$},
+        title style={font=\footnotesize\bfseries}
+      ]
+      
+      \addplot[
+      color=black,
+      mark=*,
+      mark size=1pt,
+      line width=0.8pt
+      ] coordinates {
+      (0,0) (1,1) (2,0) (3,0) (4,0) (5,0) (6,0) (7,0) (8,0) (9,0) (10,0)
+      (11,0) (12,0) (13,0) (14,0) (15,0)
+};
+      
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Passaggio diretto: solo feedforward}
+    \label{fig:allpass-zero}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[
+        width=4.5cm,
+        height=3.5cm,
+        xlabel={$n$},
+        ylabel={$h[n]$},
+        xmin=0, xmax=15,
+        ymin=-1.2, ymax=1.2,
+        grid=major,
+        grid style={line width=.1pt, draw=gray!30},
+        tick label style={font=\tiny},
+        label style={font=\footnotesize},
+        title={$g = 1/\sqrt{2}$},
+        title style={font=\footnotesize\bfseries}
+      ]
+      
+      \addplot[
+        color=red,
+        mark=*,
+        mark size=1pt,
+        line width=0.8pt
+      ] coordinates {
+        (0,-0.707) (1,0.500) (2,0.354) (3,0.250) (4,0.177) (5,0.125) 
+        (6,0.088) (7,0.063) (8,0.044) (9,0.031) (10,0.022)
+        (11,0.016) (12,0.011) (13,0.008) (14,0.005) (15,0.004)
+      };
+      
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Equilibrio critico: bilanciamento FIR/IIR}
+    \label{fig:allpass-sqrt}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[
+        width=4.5cm,
+        height=3.5cm,
+        xlabel={$n$},
+        ylabel={$h[n]$},
+        xmin=0, xmax=15,
+        ymin=-1.2, ymax=1.2,
+        grid=major,
+        grid style={line width=.1pt, draw=gray!30},
+        tick label style={font=\tiny},
+        label style={font=\footnotesize},
+        title={$g = 1$},
+        title style={font=\footnotesize\bfseries}
+      ]
+      
+      \addplot[
+        color=blue,
+        mark=*,
+        mark size=1pt,
+        line width=0.8pt
+      ] coordinates {
+        (0,-1) (1,1) (2,-1) (3,1) (4,-1) (5,1) (6,-1) (7,1) 
+        (8,-1) (9,1) (10,-1) (11,1) (12,-1) (13,1) (14,-1) (15,1)
+      };
+      
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Stallo oscillatorio: dominanza IIR}
+    \label{fig:allpass-one}
+  \end{subfigure}
+  
+\caption{Dinamiche del \apf{processo}{fir}{iir} attraverso il filtro \emph{AllPass} di Schroeder al variare del parametro $g$. (a) Con $g=0$: azione diretta senza memoria temporale, producendo risposte immediate ma culturalmente non risonanti. (b) Con $g=1/\sqrt{2} \approx 0.707$: equilibrio creativo critico dove il processo emerge dall'equilibrio dinamico tra impulso immediato (FIR) e risonanza accumulata (IIR), incarnando la tensione produttiva tra potenzialità e potenzialità-di-non. (c) Con $g=1$: la ricorsione temporale domina completamente, generando oscillazioni sterili che impediscono autentica emergenza creativa.}
+\label{fig:allpass-dynamics}
+\end{figure}
+
+\clearpage
+
+\section*{Bio}
+
+Giuseppe Silvi è Professore di Elettroacustica al Conservatorio N. Piccinni di Bari e fondatore di LEAP (Laboratorio ElettroAcustico Permanente, Roma). Ha studiato Musica Elettronica al Conservatorio S. Cecilia di Roma con Giorgio Nottoli, Nicola Bernardini e Michelangelo Lupone. La sua ricerca si concentra sull'intersezione tra indagine filosofica e pratica elettroacustica, sviluppando quadri teorici originali che collegano l'elaborazione digitale del segnale e l'analisi fenomenologica.
+
+La sua ricerca artistica ha portato all'invenzione di sistemi elettroacustici specializzati tra cui S.T.ONE (sistema di ascolto omnidirezionale tetraedrico) e TEMPO (timpani elettromagnetici). Attraverso il progetto SEAM (Sustained ElectroAcoustic Music), cura interpretazioni del repertorio elettroacustico con particolare attenzione alla scuola romana.
+
+Il suo lavoro teorico esplora come i modelli computazionali possano illuminare l'esperienza musicale senza ridurne la complessità, contribuendo a una teoria dell'esperienza musicale computazionalmente e filosoficamente informata che opera nel dominio temporale proprio del pensiero musicale stesso.
+
+\end{document}

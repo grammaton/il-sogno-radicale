@@ -163,7 +163,7 @@
             {\large\itshape \@subtitle \par}
         \fi
 
-        \vspace{1cm}
+        \vspace{0.5cm}
 
 
 

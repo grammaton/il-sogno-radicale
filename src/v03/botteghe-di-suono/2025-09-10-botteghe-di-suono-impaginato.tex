@@ -1,0 +1,55 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{../../../lib/gs}
+
+% Configurazione per URL su nuova linea
+\DeclareFieldFormat{url}{\newline\footnotesize\url{#1}}
+\DeclareFieldFormat{howpublished}{\newline\footnotesize#1}
+\DeclareFieldFormat{urldate}{\mkbibparens{#1}}
+
+\usepackage{../../../lib/apf}
+\newfontfamily\phonfont{Charis} % font ricco di simboli IPA
+
+% Packages per figure e grafici
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{decorations.text}
+\usepackage{subcaption}
+
+\usepackage{enumitem}
+
+\title{il sogno radicale}
+\subtitle{autobiografia di un eretico. appunti revb.\\[1cm] \textbf{\large botteghe di suono}}
+\author{Giuseppe Silvi}
+\date{\today}
+
+% Definizione delle parole chiave per i metadati PDF
+\kuno{filosofia}
+\kdue{greco antico}
+\ktre{Platone}
+\kquattro{etimologia}
+\kcinque{XeLaTeX}
+
+% Comandi per la notazione AllPass
+\newcommand{\apf}[3]{\textbf{\texttt{#1(#2,#3)}}}
+\newcommand{\apfc}[3]{\begin{center}\apf{#1}{#2}{#3}\end{center}}
+\newcommand{\apfcn}[4]{\begin{center}\apf{#1}{#2}{#3}\footnote{#4}\end{center}}
+
+% Nel preambolo del .tex
+\addbibresource{../../bibliografia.bib}
+
+\begin{document}
+
+\maketitle
+
+\input{2025-09-10-botteghe-di-suono.tex}
+
+\clearpage
+
+% Nel documento
+%\nocite{*}
+\printbibliography
+
+\end{document}

@@ -1,0 +1,102 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[border=0.0cm]{standalone}
+% Pacchetti per font e colori
+\usepackage{fontspec}
+
+\usepackage{tikz}
+
+\usepackage{Alegreya}
+\usepackage{newpxmath}
+%\usepackage{fourier}
+
+\usetikzlibrary{
+  decorations.text
+}
+
+% Definizione dello stile per le curve con testo
+\tikzset{
+  text curve/.style={
+    postaction={
+      decorate,
+      decoration={
+        raise=-2.4pt,
+        text effects along path,
+        text align=center,
+        text={~#1~},
+        text effects/.cd,
+          character count=\i,
+          character total=\n,
+          characters={text along path, fill=white, font=\Large},
+      }
+    }
+  },
+  % Stile per la linea base (orizzontale)
+  base line/.style={
+    postaction={
+      decorate,
+      decoration={
+        raise=-2.4pt,
+        text effects along path,
+        text align=center,
+        text={~#1~},
+        text effects/.cd,
+          character count=\i,
+          character total=\n,
+          characters={text along path, fill=white, font=\Large},
+      }
+    }
+  },
+  % Stile per l'arco superiore (da sinistra a destra)
+  upper arc/.style={text curve={#1}, ->, thick},
+  lower arc/.style={
+    ->, thick,
+    postaction={
+      decorate,
+      decoration={
+        raise=-2.4pt,
+        text effects along path,
+        reverse path,
+        text align=center,
+        text={~#1~},
+        text effects/.cd,
+          character count=\i,
+          character total=\n,
+          characters={text along path, fill=white, font=\Large}
+      }
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[color=white] (-14.4,-8.2) rectangle (14.4,8.2);
+  \tikzstyle{every node}=[font=\small]
+  
+%  \node[anchor=north west, font=\Huge] at (-13,7) {$y[n] = x[n-m] - g \cdot x[n]$};
+  \node[anchor=north west, font=\Huge] at (-13,6) {\texttt{opera(prassi,teoria)}};
+  \node[anchor=west, font=\Huge] at (-13,-6.5) {\emph{qual è il segnale che alimenta l'esperienza musicale?}};  
+  
+  \begin{scope}[rotate=3]
+     \draw[base line=opera, very thick, ->] (-5,0) -- (5,0);
+     \draw[upper arc=prassi, very thick, ->] (-3,0) arc (180:2:3cm);
+
+     \draw[lower arc=teoria, very thick, ->] (3,0) arc (0:-178:3cm);
+    
+    % Pallino centrale con etichetta
+%    \draw[fill=black] (0,0) circle (0.1cm);
+%    \node[above=3pt, font=\Large, rotate=3] at (0,0) {$m(t)$};
+    
+    % Pallini superiore e inferiore con etichette
+%    \draw[fill=black] (0,3) circle (0.1cm);
+%    \node[above=3pt, font=\Large, rotate=3] at (0,3) {$-g$};
+    
+%    \draw[fill=black] (0,-3) circle (0.1cm);
+%    \node[below=3pt, font=\Large] at (0,-3) {IIR};
+  \end{scope}
+  
+  \node[anchor=south east] at (13.9,-7) {\includegraphics[width=3cm]{2023-11-12-logo-kern.pdf}};
+  \node[anchor=south east] at (13.9,-8) {\includegraphics[width=3cm]{gs-signature_a}};
+\end{tikzpicture}
+\end{document}

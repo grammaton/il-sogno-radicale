@@ -3,11 +3,6 @@
 
 \documentclass{../../../lib/gs}
 
-% Configurazione per URL su nuova linea
-\DeclareFieldFormat{url}{\newline\footnotesize\url{#1}}
-\DeclareFieldFormat{howpublished}{\newline\footnotesize#1}
-\DeclareFieldFormat{urldate}{\mkbibparens{#1}}
-
 \usepackage{../../../lib/apf}
 \newfontfamily\phonfont{Charis} % font ricco di simboli IPA
 
@@ -37,8 +32,46 @@
 \newcommand{\apfc}[3]{\begin{center}\apf{#1}{#2}{#3}\end{center}}
 \newcommand{\apfcn}[4]{\begin{center}\apf{#1}{#2}{#3}\footnote{#4}\end{center}}
 
+\usepackage[
+  backend=biber,
+  style=authoryear,        % oppure numeric se preferisci numeri
+  sorting=nyt,             % ordina per: nome, anno, titolo
+  maxbibnames=3,           % max 3 autori, poi "et al."
+  maxcitenames=2,          % in citazione max 2 nomi
+  giveninits=false,        % nomi completi, non iniziali
+  uniquename=false,
+  uniquelist=false,
+  url=true,                % mostra URL
+  doi=false,               % NON mostrare DOI
+  isbn=false,              % NON mostrare ISBN
+  eprint=false             % NON mostrare eprint
+]{biblatex}
+
+% Personalizzazioni aggiuntive
+\DeclareFieldFormat{url}{\newline\footnotesize\url{#1}}
+\DeclareFieldFormat{howpublished}{\newline\footnotesize#1}
+\DeclareFieldFormat{urldate}{accesso: #1}   % formato data accesso
+
+% Rimuovi completamente i campi che non servono
+\AtEveryBibitem{%
+  \clearfield{issn}%
+  \clearfield{isbn}%
+  \clearfield{doi}%
+  \clearfield{eprint}%
+  \clearfield{eprinttype}%
+  \clearfield{pages}% rimuovi se non vuoi vedere le pagine
+}
+
+% Per rimuovere "In:" prima del nome della rivista
+\renewbibmacro{in:}{}
+
+% Rendi \cite equivalente a \parencite
+\let\cite\parencite
+
 % Nel preambolo del .tex
 \addbibresource{../../bibliografia.bib}
+
+\usepackage{soul}
 
 \begin{document}
 
